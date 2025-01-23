@@ -1,0 +1,56 @@
+{
+    "name": "clmartel/flarum-oauth-shopify",
+    "description": "Shopify Customer API OAuth2 provider for Flarum",
+    "version": "1.0.0",
+    "keywords": [
+        "flarum"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^1.2.0",
+        "fof/oauth": "^1.3"
+    },
+    "authors": [
+        {
+            "name": "clmartel",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "clmartel\\OauthShopify\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Shopify OAuth",
+            "category": "",
+            "icon": {
+                "name": "fas fa-lock",
+                "color": "#fff",
+                "backgroundColor": "#4e73df"
+            }
+        },
+        "flarum-cli": {
+            "modules": {
+                "admin": true,
+                "forum": true,
+                "js": true,
+                "jsCommon": true,
+                "css": true,
+                "locale": true,
+                "gitConf": true,
+                "githubActions": true,
+                "prettier": true,
+                "typescript": true,
+                "bundlewatch": false,
+                "backendTesting": true,
+                "editorConfig": true,
+                "styleci": true
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
