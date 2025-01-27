@@ -50,7 +50,7 @@ class ShopifyLogoutController extends AuthController
             $token = $shopifyProvider->getAccessToken('authorization_code', $options);
     
             $idToken = $token->getValues()['id_token'];
-            $logoutUrl = $shopifyProvider->getLogoutUrl() . "?id_token_hint=" . $idToken . '&post_logout_redirect_uri=' . urlencode($siteUrl . 'logout');
+            $logoutUrl = $shopifyProvider->getLogoutUrl() . "?id_token_hint=" . $idToken . '&post_logout_redirect_uri=' . urlencode($siteUrl);
              
             return new RedirectResponse($logoutUrl);
         }
