@@ -25,4 +25,8 @@ return [
     new Extend\Locales(__DIR__.'/locale'),
 
     (new OAuthExtend\RegisterProvider(Providers\Shopify::class)),
+
+    (new Extend\Routes('forum'))
+    ->get('/auth/shopify/logout', 'auth.shopify.logout', Controllers\ShopifyLogoutController::class),
+
 ];

@@ -167,6 +167,10 @@ class ShopifyProvider extends AbstractProvider
         return 'https://shopify.com/'.$this->shopId.'/account/customer/api/2024-10/graphql'; 
     }
 
+    public function getLogoutUrl() {
+        return 'https://shopify.com/authentication/'.$this->shopId.'/logout';
+    }
+
     /**
      * @inheritdoc
      */
