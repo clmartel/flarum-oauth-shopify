@@ -40,9 +40,9 @@ class ShopifyLogoutController extends AuthController
             }
         }
 
-        $siteUrl = app('flarum.config')['url'];
+        $siteUrl = rtrim(app('flarum.config')['url'], '/');
 
-        $shopifyProvider = $provider->provider($siteUrl.'auth/shopify/logout');
+        $shopifyProvider = $provider->provider($siteUrl.'/auth/shopify/logout');
 
         if (!is_null($request->getQueryParams()) && array_key_exists('code', $request->getQueryParams())) {
             $options = array('code' => $request->getQueryParams()['code']);
