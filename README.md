@@ -6,7 +6,7 @@ This extension utlizes the flows described at:
 
 We first attempted this using the https://flarum.org/extension/blt950/oauth-generic extension, but Shopify does not provide a typical user info endpoint for customers, so we made our own extension which makes a GraphQL call to their Customer API.  The extension pulls 3 customer fields into Flarum- ID (the numeric, unique Shopify customer ID), e-mail address, and display name.
 
-To configure the extension, you must enable the "Headless" app in your Spotify store and configure the Customer API.
+To configure the extension, you must enable the "Headless" app in your Shopify store and configure the Customer API.
 
 ![Shopify Headless storefront](https://github.com/clmartel/flarum-oauth-shopify/blob/main/doc/Screenshot1.jpg?raw=true)
 
