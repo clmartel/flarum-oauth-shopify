@@ -50,7 +50,8 @@ class ShopifyProvider extends AbstractProvider
     /**
      * @var string|null
      */
-    private $pkceMethod = null;
+    private $pkceMethod = self::PKCE_METHOD_S256;
+    //private $pkceMethod = null;
 
     /**
      * @var string
@@ -182,6 +183,11 @@ class ShopifyProvider extends AbstractProvider
     protected function getAuthorizationHeaders($token = null)
     {
         return ['Authorization' => "{$token}"];
+    }
+
+    protected function getPkceMethod() {
+        return self::PKCE_METHOD_S256;
+        //return null;
     }
 
     /**

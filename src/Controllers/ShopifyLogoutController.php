@@ -43,19 +43,26 @@ class ShopifyLogoutController extends AuthController
         $siteUrl = rtrim(app('flarum.config')['url'], '/');
 
         $shopifyProvider = $provider->provider($siteUrl.'/auth/shopify/logout');
-
+/*
         if (!is_null($request->getQueryParams()) && array_key_exists('code', $request->getQueryParams())) {
-            $options = array('code' => $request->getQueryParams()['code']);
+            $options = array('code' => $request->getQueryParams()['code'],
+               'code_challenge' => $shopifyProvider->getPkceCode(),
+               'code_challenge_method' => 'S256');
 
             $token = $shopifyProvider->getAccessToken('authorization_code', $options);
-    
+
             $idToken = $token->getValues()['id_token'];
-            $logoutUrl = $shopifyProvider->getLogoutUrl() . "?id_token_hint=" . $idToken . '&post_logout_redirect_uri=' . urlencode($siteUrl);
-             
+            $logoutUrl = $shopifyProvider->getLogoutUrl(); // . "?id_token_hint=" . $idToken . '&post_logout_redirect_uri=' . urlencode($siteUrl);
+
             return new RedirectResponse($logoutUrl);
+
         }
         else {
-            return new RedirectResponse($shopifyProvider->getAuthorizationUrl());
-        }
+//            return new RedirectResponse($shopifyProvider->getAuthorizationUrl());
+        //}*/
+        $logoutUrl = $shopifyProvider->getLogoutUrl() . '?post_logout_redirect_uri=' . urlencode($siteUrl);
+
+        //return new RedirectResponse($logoutUrl);
+	return new RedirectResponse($siteUrl);
     }
 }
